@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class ScoreKeeper : MonoBehaviour
 {
+    public float Score = 0;
+
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Food"))
         {
-            Debug.Log("collected");
-            Destroy(gameObject);
+            Score += 100;
+            Destroy(other.gameObject);
         }
     }
 }
